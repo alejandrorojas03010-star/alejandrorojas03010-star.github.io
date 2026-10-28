@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alejandro Rojas Espinoza</title>
+<meta name="description" content="Portafolio y currículum de Alejandro Rojas Espinoza, estudiante de Ingeniería de Sistemas Informáticos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a modeling sheet — faint blueprint grid, a left rail of spec labels, content in one readable column */
+:root {
+  --bg: #F2F4F6;
+  --sheet: #FFFFFF;
+  --ink: #142230;
+  --muted: #5A6878;
+  --line: #D6DDE5;
+  --grid: rgba(31, 95, 191, 0.07);
+  --accent: #1F5FBF;
+  --accent-soft: #E3ECFA;
+  --signal: #C2410C;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E151D; --sheet: #141E29; --ink: #E6ECF2; --muted: #93A2B3; --line: #26364A;
+    --grid: rgba(120, 165, 235, 0.06); --accent: #7FAEF5; --accent-soft: #1B2B42; --signal: #F59E61;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E151D; --sheet: #141E29; --ink: #E6ECF2; --muted: #93A2B3; --line: #26364A;
+  --grid: rgba(120, 165, 235, 0.06); --accent: #7FAEF5; --accent-soft: #1B2B42; --signal: #F59E61;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 56px;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.sheet {
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+/* Header */
+.head {
+  padding: clamp(24px, 5vw, 48px);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 20px;
+}
+.tag {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.status { display: inline-flex; align-items: center; gap: 8px; }
+.status::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--signal);
+}
+h1 {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-wrap: balance;
+}
+.role {
+  font-size: clamp(17px, 2.2vw, 20px);
+  color: var(--muted);
+  max-width: 58ch;
+  margin: 0;
+}
+.role strong { color: var(--ink); font-weight: 600; }
+.contact {
+  display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center;
+  font-family: var(--f-mono); font-size: 13.5px;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--line); border-radius: 4px;
+  padding: 6px 10px; color: var(--ink); text-decoration: none;
+  background: var(--sheet);
+}
+a.chip:hover { border-color: var(--accent); color: var(--accent); }
+.mail { user-select: all; }
+button.copy {
+  font: inherit; font-size: 12px; cursor: pointer;
+  border: 1px solid var(--accent); color: var(--accent); background: var(--accent-soft);
+  border-radius: 4px; padding: 6px 10px;
+}
+
+/* Sections: label rail + content */
+section {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 24px;
+  padding: 32px clamp(24px, 5vw, 48px);
+  border-bottom: 1px solid var(--line);
+}
+section:last-of-type { border-bottom: 0; }
+.label { padding-top: 4px; }
+.label .code { font-family: var(--f-mono); font-size: 12px; color: var(--accent); letter-spacing: 0.06em; }
+h2 {
+  font-family: var(--f-display); font-weight: 700; font-size: 20px;
+  letter-spacing: -0.01em; margin: 2px 0 0;
+}
+.body { min-width: 0; display: grid; gap: 22px; }
+.body p { margin: 0; max-width: 65ch; }
+
+/* Entries */
+.entry { display: grid; gap: 6px; }
+.entry-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+h3 { font-family: var(--f-display); font-weight: 700; font-size: 19px; margin: 0; letter-spacing: -0.01em; }
+.org { color: var(--muted); font-weight: 500; }
+.when { font-family: var(--f-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.now { color: var(--signal); }
+ul.points { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 4px; max-width: 65ch; }
+.metric {
+  display: inline-block; font-family: var(--f-mono); font-size: 13px;
+  background: var(--accent-soft); color: var(--accent);
+  padding: 2px 8px; border-radius: 3px; font-variant-numeric: tabular-nums;
+}
+
+/* Semester track */
+.track { display: grid; gap: 8px; }
+.cells { display: grid; grid-template-columns: repeat(8, 1fr); gap: 4px; max-width: 420px; }
+.cell {
+  height: 26px; border: 1px solid var(--line); border-radius: 3px;
+  font-family: var(--f-mono); font-size: 11px; color: var(--muted);
+  display: grid; place-items: center;
+}
+.cell.done { background: var(--accent); border-color: var(--accent); color: var(--sheet); }
+.cell.cur { border: 1.5px dashed var(--accent); color: var(--accent); }
+.track small { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.courses { color: var(--muted); font-size: 15px; max-width: 65ch; margin: 0; }
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.project { border: 1px solid var(--line); border-radius: 4px; padding: 18px; display: grid; gap: 10px; align-content: start; }
+.project p { font-size: 15px; }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.stack span { font-family: var(--f-mono); font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 3px; padding: 2px 7px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px 24px; }
+.group h4 { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 8px; font-weight: 500; }
+.group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.group li::before { content: "+ "; font-family: var(--f-mono); color: var(--accent); }
+
+/* Stack rows */
+.stackrows { display: grid; border-top: 1px solid var(--line); }
+.srow { display: grid; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.srow-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 16px; }
+.srow h3 { font-size: 17px; }
+.subj { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.langs { display: flex; flex-wrap: wrap; gap: 6px; }
+.langs span {
+  font-family: var(--f-mono); font-size: 13px; font-weight: 500;
+  color: var(--accent); background: var(--accent-soft);
+  border-radius: 3px; padding: 3px 9px;
+}
+.note { color: var(--muted); font-size: 14.5px; }
+
+.foot {
+  max-width: 920px; margin: 16px auto 0;
+  font-family: var(--f-mono); font-size: 12px; color: var(--muted);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px;
+}
+
+@media (max-width: 640px) {
+  section { grid-template-columns: minmax(0, 1fr); gap: 12px; padding-block: 26px; }
+  .label { display: flex; gap: 10px; align-items: baseline; padding-top: 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sheet { animation: rise .5s ease-out both; }
+  @keyframes rise { from { transform: translateY(8px); } to { transform: none; } }
+}
+</style>
+
+</head>
+<body>
+<main class="sheet">
+  <header class="head">
+    <span class="tag status">Santa Cruz de la Sierra, Bolivia · Currículum</span>
+    <h1>Alejandro Rojas Espinoza</h1>
+    <p class="role"><strong>Estudiante de Ingeniería de Sistemas Informáticos</strong> en Univalle y Team Leader en Demons Agency. Uno desarrollo de software, inteligencia artificial y marketing digital.</p>
+    <div class="contact">
+      <span class="chip mail" id="mail">alejandrorojas03010@gmail.com</span>
+      <button class="copy" id="copy-mail" type="button">Copiar correo</button>
+      <a class="chip" href="https://www.linkedin.com/in/alejandro-rojas-espinoza-57861042a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="chip" href="https://github.com/alejandrorojas03010-star" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="label"><div class="code">01</div><h2>Perfil</h2></div>
+    <div class="body">
+      <p>Estudiante de 4.º semestre con experiencia académica en programación orientada a objetos (C#, Java, C++), desarrollo web (JavaScript, PHP/Laravel, ASP.NET, React, Node.js), apps Android (Kotlin, Java) y bases de datos (SQL Server, PostgreSQL, MySQL, Oracle). Desde agosto de 2025 lidero el equipo de ventas y contenido de una agencia de marketing digital, con meses de USD 2.500 a 5.000 en ventas. Uso asistentes de IA como Claude Code y Codex en mi forma de programar.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="label"><div class="code">02</div><h2>Experiencia</h2></div>
+    <div class="body">
+      <article class="entry">
+        <div class="entry-top">
+          <h3>Team Leader <span class="org">· Demons Agency</span></h3>
+          <span class="when">ago. 2025 – <span class="now">actualidad</span></span>
+        </div>
+        <p>Agencia de marketing digital para creadoras de contenido en plataformas de suscripción.</p>
+        <ul class="points">
+          <li>Lidero el equipo de ventas y la organización del contenido para generar tráfico en redes sociales.</li>
+          <li>Planifico calendarios de publicación y estrategias de captación de audiencia.</li>
+          <li>Meses cerrados con ventas de <span class="metric">USD 2.500 – 5.000</span></li>
+        </ul>
+      </article>
+      <article class="entry">
+        <div class="entry-top">
+          <h3>Editor de video y asistente virtual <span class="org">· Freelance</span></h3>
+          <span class="when">ene. 2024 – oct. 2024</span>
+        </div>
+        <ul class="points">
+          <li>Edité videos para redes sociales y campañas de agencias de marketing y marcas personales.</li>
+          <li>Adapté formato y ritmo de edición a cada plataforma y a la identidad de cada cliente.</li>
+          <li>Brindé apoyo remoto en tareas administrativas y de gestión.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="label"><div class="code">03</div><h2>Formación</h2></div>
+    <div class="body">
+      <article class="entry">
+        <div class="entry-top">
+          <h3>Ingeniería de Sistemas Informáticos <span class="org">· Universidad Privada del Valle</span></h3>
+          <span class="when">2025 – <span class="now">en curso</span></span>
+        </div>
+        <div class="track" aria-label="Avance de la carrera: cursando el semestre 4 de 8">
+          <div class="cells">
+            <span class="cell done">1</span><span class="cell done">2</span><span class="cell done">3</span><span class="cell cur">4</span>
+            <span class="cell">5</span><span class="cell">6</span><span class="cell">7</span><span class="cell">8</span>
+          </div>
+          <small>Cursando el semestre 4 de 8 · Plan 2017</small>
+        </div>
+      </article>
+      <p class="courses">Materias cursadas: Programación I–III, Base de Datos I–III, Programación Web I–III, Programación Móvil I–II, Ingeniería de Software, Proyecto de Sistemas I, Game Development, IoT y Robótica, Sistemas Operativos, Electrónica Digital Aplicada, Animación Digital, Inglés Técnico I–III.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="label"><div class="code">04</div><h2>Proyectos</h2></div>
+    <div class="body">
+      <div class="projects">
+        <article class="project">
+          <span class="tag">Académico · Univalle</span>
+          <h3>Proyecto integrador de sistemas</h3>
+          <p>Especificación de Requisitos de Software (ERS v2.0) con requisitos funcionales y no funcionales, priorización MoSCoW y validación. Modelado del sistema con procesos BPMN (actual y propuesto), casos de uso y diagramas de secuencia, clases y actividades.</p>
+          <div class="stack"><span>ERS</span><span>MoSCoW</span><span>UML</span><span>BPMN</span><span>StarUML</span></div>
+        </article>
+        <article class="project">
+          <span class="tag">Personal</span>
+          <h3>Videojuegos en Roblox</h3>
+          <p>Desarrollo de juegos en Roblox Studio con scripting en Luau. Trabajo con asistentes de programación con IA para acelerar el desarrollo, depurar y revisar el código.</p>
+          <div class="stack"><span>Roblox Studio</span><span>Luau</span><span>Claude Code</span><span>Codex</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="label"><div class="code">05</div><h2>Stack técnico</h2></div>
+    <div class="body">
+      <p>Lenguajes y herramientas que usé en las materias de la carrera, de 1.º a 4.º semestre.</p>
+      <div class="stackrows">
+        <article class="srow">
+          <div class="srow-head">
+            <h3>Programación orientada a objetos</h3>
+            <span class="subj">Programación I, II y III</span>
+          </div>
+          <div class="langs"><span>C#</span><span>Java</span><span>C++</span></div>
+          <p class="note">Clases, herencia, polimorfismo, encapsulamiento, manejo de excepciones y patrones de diseño.</p>
+        </article>
+        <article class="srow">
+          <div class="srow-head">
+            <h3>Desarrollo web</h3>
+            <span class="subj">Programación Web I, II y III</span>
+          </div>
+          <div class="langs"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>Laravel</span><span>ASP.NET (C#)</span><span>React</span><span>Node.js</span></div>
+          <p class="note">Frontend y backend, aplicaciones web conectadas a bases de datos.</p>
+        </article>
+        <article class="srow">
+          <div class="srow-head">
+            <h3>Aplicaciones móviles</h3>
+            <span class="subj">Programación Móvil I y II</span>
+          </div>
+          <div class="langs"><span>Kotlin</span><span>Java</span><span>Android Studio</span></div>
+          <p class="note">Apps nativas para Android.</p>
+        </article>
+        <article class="srow">
+          <div class="srow-head">
+            <h3>Bases de datos</h3>
+            <span class="subj">Base de Datos I, II y III</span>
+          </div>
+          <div class="langs"><span>SQL</span><span>SQL Server</span><span>PostgreSQL</span><span>MySQL</span><span>Oracle</span></div>
+          <p class="note">Modelado entidad-relación, consultas, programación cliente/servidor.</p>
+        </article>
+        <article class="srow">
+          <div class="srow-head">
+            <h3>Videojuegos e IA aplicada</h3>
+            <span class="subj">Game Development · proyecto personal</span>
+          </div>
+          <div class="langs"><span>Roblox Studio</span><span>Luau</span><span>Claude Code</span><span>Codex</span></div>
+          <p class="note">Desarrollo de juegos y programación asistida con IA.</p>
+        </article>
+        <article class="srow">
+          <div class="srow-head">
+            <h3>Ingeniería de software</h3>
+            <span class="subj">Ingeniería de Software · Proyecto de Sistemas I</span>
+          </div>
+          <div class="langs"><span>UML</span><span>BPMN</span><span>StarUML</span><span>ERS</span><span>MoSCoW</span><span>Git</span><span>GitHub</span></div>
+          <p class="note">Requisitos, modelado y control de versiones.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="label"><div class="code">06</div><h2>Otras aptitudes</h2></div>
+    <div class="body">
+      <div class="skills">
+        <div class="group"><h4>Marketing y ventas</h4><ul><li>Marketing digital</li><li>Gestión de redes sociales</li><li>Ventas</li><li>Edición de video</li></ul></div>
+        <div class="group"><h4>Liderazgo</h4><ul><li>Liderazgo de equipos</li><li>Planificación de contenido</li><li>Metas de ventas medibles</li></ul></div>
+        <div class="group"><h4>Idiomas</h4><ul><li>Español nativo</li><li>Inglés técnico</li></ul></div>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="foot"><span>Alejandro Rojas Espinoza · 2026</span><span>Santa Cruz, Bolivia</span></div>
+
+<script>
+  (function () {
+    var btn = document.getElementById("copy-mail");
+    var mail = document.getElementById("mail");
+    btn.addEventListener("click", function () {
+      var text = mail.textContent.trim();
+      function selectFallback() {
+        var r = document.createRange(); r.selectNodeContents(mail);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = "Seleccionado, copia con Ctrl+C";
+      }
+      try {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = "Correo copiado";
+          setTimeout(function () { btn.textContent = "Copiar correo"; }, 2000);
+        }, selectFallback);
+      } catch (e) { selectFallback(); }
+    });
+  })();
+</script>
+
+</body>
+</html>
